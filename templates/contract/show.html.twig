@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contract{% endblock %}
+
+{% block body %}
+    <h1>Contract</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contract.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ contract.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ contract.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ contract.email }}</td>
+            </tr>
+            <tr>
+                <th>DateStartAt</th>
+                <td>{{ contract.dateStartAt ? contract.dateStartAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateEndAt</th>
+                <td>{{ contract.dateEndAt ? contract.dateEndAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Rent</th>
+                <td>{{ contract.rent }}</td>
+            </tr>
+            <tr>
+                <th>Caution</th>
+                <td>{{ contract.caution }}</td>
+            </tr>
+            <tr>
+                <th>SignatureId</th>
+                <td>{{ contract.signatureId }}</td>
+            </tr>
+            <tr>
+                <th>DocumentId</th>
+                <td>{{ contract.documentId }}</td>
+            </tr>
+            <tr>
+                <th>SignerId</th>
+                <td>{{ contract.signerId }}</td>
+            </tr>
+            <tr>
+                <th>UnsignedPdfName</th>
+                <td>{{ contract.unsignedPdfName }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a role="button" href="{{ path('app_contract_signature', {'id': contract.id}) }}">Envoyer la demande de signature</a>
+    </div>
+    <a href="{{ path('app_contract_index') }}">back to list</a>
+
+    <a href="{{ path('app_contract_edit', {'id': contract.id}) }}">edit</a>
+
+
+    {{ include('contract/_delete_form.html.twig') }}
+{% endblock %}

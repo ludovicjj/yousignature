@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+</head>
+<body>
+    <h1>CONTRACT DE LOCATION</h1>
+
+    Entre les soussignés:
+    <ul>
+        <li>Le propriétaire, MrProprio, ci-après dénommé "le Propriétaire"</li>
+        <li>Le locataire, {{ contract.firstname }} {{ contract.lastname }}, ci-après dénommé "le Locataire"</li>
+    </ul>
+
+    Il est convenu et arrêté ce qui suit:
+    <ul>
+        <li>1. Object du contact : Le Propriétaire loue au locataire le logement, du {{ contract.dateStartAt|date('d/m/Y') }} au {{ contract.dateEndAt|date('d/m/Y') }}.</li>
+        <li>2. Loyer : Le Locataire s'engage à payer au propriétaire un loyer mensuel de {{ contract.rent }} $.</li>
+        <li>3. Caution : Le Locataire s'engage à déposer une caution de {{ contract.caution }} $.</li>
+        <li>4. Utilisation du logement : Le Locataire s'engage à utiliser le logement uniquement dans le cadre d'habitation.</li>
+        <li>5. Entretient du logement : Le Locataire s'engage à entretenir le logement en bon état de propreté et de réparation, et à restituer le logement en bon état.</li>
+        <li>6. Durée et renouvellement : Ce contrat prendra fin le {{ contract.dateEndAt|date('d/m/Y') }}.</li>
+    </ul>
+</body>
+</html>

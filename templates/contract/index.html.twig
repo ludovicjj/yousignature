@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contract index{% endblock %}
+
+{% block body %}
+    <h1>Contract index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>DateStartAt</th>
+                <th>DateEndAt</th>
+                <th>Rent</th>
+                <th>Caution</th>
+                <th>SignatureId</th>
+                <th>DocumentId</th>
+                <th>SignerId</th>
+                <th>UnsignedPdfPath</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contract in contracts %}
+            <tr>
+                <td>{{ contract.id }}</td>
+                <td>{{ contract.firstname }}</td>
+                <td>{{ contract.lastname }}</td>
+                <td>{{ contract.email }}</td>
+                <td>{{ contract.dateStartAt ? contract.dateStartAt|date('Y-m-d') : '' }}</td>
+                <td>{{ contract.dateEndAt ? contract.dateEndAt|date('Y-m-d') : '' }}</td>
+                <td>{{ contract.rent }}</td>
+                <td>{{ contract.caution }}</td>
+                <td>{{ contract.signatureId }}</td>
+                <td>{{ contract.documentId }}</td>
+                <td>{{ contract.signerId }}</td>
+                <td>{{ contract.unsignedPdfName }}</td>
+                <td>
+                    <a href="{{ path('app_contract_pdf', {'id': contract.id}) }}">pdf</a>
+                    <a href="{{ path('app_contract_show', {'id': contract.id}) }}">show</a>
+                    <a href="{{ path('app_contract_edit', {'id': contract.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contract_new') }}">Create new</a>
+{% endblock %}

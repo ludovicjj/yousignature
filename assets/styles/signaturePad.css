@@ -1,0 +1,13 @@
+.wrapper {
+    border: 1px rgba(33, 37, 41, 0.5) solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.signature-hand {
+    transition: opacity .3s ease-out;
+}
+.signature-hand.off {
+    opacity: .5;
+}

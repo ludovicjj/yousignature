@@ -1,0 +1,31 @@
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    margin-bottom: 1rem;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.signature-pad {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:400px;
+    height:200px;
+    background-color: white;
+}
+/*.dropzone {*/
+/*    background-color: #fff;*/
+/*}*/
+/*.dropzone .dz-message .dz-button {*/
+/*    color: hsl(195, 85%, 41%) !important;*/
+/*}*/
+/*.dropzone .dz-preview .dz-remove {*/
+/*    background-color: hsl(195, 85%, 41%) !important;*/
+/*    color: #ffffff;*/
+/*    margin-top: 10px;*/
+/*    border-radius: 5px;*/
+/*}*/

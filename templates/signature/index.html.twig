@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SignatureController!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('app_signature') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('app_signature') }}
+{% endblock %}
+
+{% block body %}
+    <main class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-md-6 mb-4 mb-md-0 signature-hand">
+                <h1 class="h5">Signature manuelle :</h1>
+                <div class="wrapper">
+                    <canvas width=400 height=200 id="signature-pad" class="signature-pad"></canvas>
+                </div>
+                <button id="clear-button" class="btn btn-primary btn-sm">Effacer</button>
+            </div>
+            <div class="col-12 col-md-6 signature-drop">
+                <h2 class="h5">Télécharger une signature :</h2>
+                <div class="row">
+                    <label class="col-12 form-label text-lg-right">Upload Files:</label>
+                    <div class="col-12">
+                        <!--begin::Dropzone-->
+                        <div class="dropzone dropzone-queue mb-2" id="kt_dropzonejs_example_3">
+                            <!--begin::Controls-->
+                            <div class="dropzone-panel mb-lg-0 mb-2">
+                                <button class="dropzone-select btn btn-sm btn-primary me-2" id="dropzone-select" type="button">Télécharger un fichier</button>
+                                {# <button class="dropzone-remove-all btn btn-sm btn-light-primary" type="button">Remove All</button>#}
+                            </div>
+                            <!--end::Controls-->
+
+                            <!--begin::Items-->
+                            <div class="dropzone-items wm-200px">
+                                <div class="dropzone-item" style="display:none">
+                                    <!--begin::File-->
+                                    <div class="dropzone-file">
+                                        <div class="dropzone-filename" title="some_image_file_name.jpg">
+                                            <span data-dz-name>some_image_file_name.jpg</span>
+                                            <strong>(<span data-dz-size>340kb</span>)</strong>
+                                        </div>
+
+                                        <div class="dropzone-error" data-dz-errormessage></div>
+                                    </div>
+                                    <!--end::File-->
+
+                                    <!--begin::Progress-->
+                                    <div class="dropzone-progress">
+                                        <div class="progress">
+                                            <div class="progress-bar bg-primary"
+                                                 role="progressbar"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100"
+                                                 aria-valuenow="0"
+                                                 data-dz-uploadprogress
+                                            >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Progress-->
+
+                                    <!--begin::Toolbar-->
+                                    <div class="dropzone-toolbar">
+                                        <span class="dropzone-delete" data-dz-remove>x</span>
+                                    </div>
+                                    <!--end::Toolbar-->
+                                </div>
+                            </div>
+                            <!--end::Items-->
+                        </div>
+                        <!--end::Dropzone-->
+
+                        <!--begin::Hint-->
+                        <span class="form-text text-muted">Max file size is 300Ko and max number of files is 1.</span>
+                        <!--end::Hint-->
+                    </div>
+                </div><!-- .row -->
+            </div>
+        </div><!-- .row -->
+    </main><!-- .container -->
+
+
+{% endblock %}

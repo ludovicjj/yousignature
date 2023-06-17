@@ -30,6 +30,6 @@ class SignatureController extends AbstractController
             $base64Content = base64_encode($fileContent);
         }
 
-        return new JsonResponse(['success' => true, "base64" => $base64Content]);
+        return new JsonResponse(['success' => true, "signature" => $base64Content]);
     }
 }

@@ -1,6 +1,7 @@
 import {signaturePad, clearButton} from "./components/signaturePad";
 import {myDropzone} from "./components/dropzone";
 
+let signatureUpload = null;
 
 // Lorsque le canvas de signature est initialisé, désactiver la zone de drop
 const disableDropZone = function() {
@@ -20,7 +21,8 @@ clearButton.addEventListener('click', function() {
 disableDropZone();
 
 // Lorsque le drop est un success :
-myDropzone.on('success', function () {
+myDropzone.on('success', function (file, response) {
+    signatureUpload = response.signature
     document.querySelector('.signature-hand').classList.add('off')
     // désactive la zone de drop
     myDropzone.disable();
@@ -36,5 +38,21 @@ myDropzone.on('removedfile', function () {
         document.querySelector('.signature-hand').classList.remove('off')
         signaturePad.on();
         myDropzone.enable();
+        signatureUpload = null;
     }
 });
+
+// Envoie des data
+document.querySelector('#submit-data').addEventListener("click", function() {
+    let signature = null;
+
+    if (!signaturePad.isEmpty()) {
+        console.log("signature manuelle")
+        signature = signaturePad.toDataURL().replace("data:image/png;base64,", "")
+    } else if (signatureUpload) {
+        console.log("signature upload")
+        signature = signatureUpload
+    }
+
+    console.log(signature);
+})
